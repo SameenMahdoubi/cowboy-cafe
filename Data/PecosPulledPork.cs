@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* PecosPulledPork.cs
+ * Author: Max Maus
+ * Last modified 2/5/20
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

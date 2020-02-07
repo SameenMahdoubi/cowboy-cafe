@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* CowpokeChili.cs
+ * Author: Max Maus
+ * Last modified 2/5/20
+ */
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
