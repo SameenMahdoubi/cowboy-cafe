@@ -1,6 +1,6 @@
 ﻿/* CowboyCoffee.cs
  * Author: Max Maus
- * Last modified 2/16/20
+ * Last modified 2/17/20
  */
 
 using System;
@@ -57,6 +57,11 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Whether or not the Coffee is decaffienated
+        /// </summary>
+        public bool Decaf { get; set; } = false;
+
+        /// <summary>
         /// Whether or not the Coffee contains ice
         /// </summary>
         public override bool Ice { get; set; } = false;
@@ -77,7 +82,7 @@ namespace CowboyCafe.Data
                 if (Ice == true)
                 {
                     instructions.Add("Add Ice");
-                }
+                }              
                 if (RoomForCream == true)
                 {
                     instructions.Add("Room for Cream");

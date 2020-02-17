@@ -1,6 +1,6 @@
 ﻿/* SodaFlavor.cs
  * Author: Max Maus
- * Last modified 2/16/20
+ * Last modified 2/17/20
  * This enum refers to the flavor of the soda ordered.
  */
 using System;
@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     {
         CreamSoda,
         OrangeSoda,
-        Sarsaparilla,
+        Sarsparilla,
         BirchBeer,
         RootBeer
     }
