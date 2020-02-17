@@ -1,6 +1,7 @@
 ﻿/* Size.cs
  * Author: Nathan Bean
- * Last modified 2/2/20
+ * Last modified 2/16/20
+ * This enum refers to the 3 possible sizes for sides and drinks.
  */
 
 using System;

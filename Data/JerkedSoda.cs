@@ -1,5 +1,5 @@
-﻿/* ChiliCheeseFries.cs
- * Author: Nathan Bean
+﻿/* JerkedSoda.cs
+ * Author: Max Maus
  * Last modified 2/16/20
  */
 
@@ -10,12 +10,17 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Chili CHeese Fries side
+    /// A class representing the Jerked Soda drink.
     /// </summary>
-    public class ChiliCheeseFries:Side
+    public class JerkedSoda : Drink
     {
         /// <summary>
-        /// The amount of calories in the Chili Cheese Fries
+        /// The flavor of the soda
+        /// </summary>
+        public SodaFlavor Flavor { get; set; }
+
+        /// <summary>
+        /// The amount of calories in the Jerked Soda
         /// </summary>
         public override uint Calories
         {
@@ -24,11 +29,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Large:
-                        return 610;
+                        return 198;
                     case Size.Medium:
-                        return 524;
+                        return 146;
                     case Size.Small:
-                        return 433;
+                        return 110;
                     default:
                         throw new NotImplementedException("Unknown Size");
                 }
@@ -36,7 +41,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The price of the Chili Cheese Fries
+        /// The price of the Jerked Soda
         /// </summary>
         public override double Price
         {
@@ -45,14 +50,31 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Large:
-                        return 3.99;
+                        return 2.59;
                     case Size.Medium:
-                        return 2.99;
+                        return 2.10;
                     case Size.Small:
-                        return 1.99;
+                        return 1.59;
                     default:
                         throw new NotImplementedException("Unknown price");
                 }
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the preparation of the Jerked Soda
+        /// </summary>
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+                if (Ice == false)
+                {
+                    instructions.Add("Hold Ice");
+                }
+
+                return instructions;
             }
         }
     }

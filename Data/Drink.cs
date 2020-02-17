@@ -38,7 +38,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Whether or not the drink contains ice
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public virtual bool Ice { get; set; } = true;
 
         /// <summary>
         /// Special instructions for the preparation of the drink
