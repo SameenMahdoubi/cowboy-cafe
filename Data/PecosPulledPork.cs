@@ -1,6 +1,6 @@
 ﻿/* PecosPulledPork.cs
  * Author: Max Maus
- * Last modified 2/5/20
+ * Last modified 2/19/20
  */
 
 using System;
@@ -66,6 +66,15 @@ namespace CowboyCafe.Data
 
                 return instructions;
             }
+        }
+
+        /// <summary>
+        /// Converts the object to a string
+        /// </summary>
+        /// <returns>The string "Pecos Pulled Pork"</returns>
+        public override string ToString()
+        {
+            return "Pecos Pulled Pork";
         }
     }
 }

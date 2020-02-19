@@ -1,6 +1,6 @@
 ﻿/* RustlersRibs.cs
  * Author: Nathan Bean
- * Last modified 2/5/20
+ * Last modified 2/19/20
  */
 
 using System;
@@ -45,6 +45,15 @@ namespace CowboyCafe.Data
             {
                 return new List<string>();
             }
+        }
+
+        /// <summary>
+        /// Converts the object to a string
+        /// </summary>
+        /// <returns>The string "Rustler's Ribs"</returns>
+        public override string ToString()
+        {
+            return "Rustler's Ribs";
         }
     }
 }
