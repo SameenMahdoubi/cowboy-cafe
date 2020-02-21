@@ -1,6 +1,6 @@
 ﻿/* TrailBurger.cs
  * Author: Max Maus
- * Last modified 2/19/20
+ * Last modified 2/21/20
  */
 
 using System;
@@ -83,10 +83,10 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Converts the object to a string
         /// </summary>
-        /// <returns>The string "TrailBurger"</returns>
+        /// <returns>The string "Trail Burger"</returns>
         public override string ToString()
         {
-            return "TrailBurger";
+            return "Trail Burger";
         }
     }
 }

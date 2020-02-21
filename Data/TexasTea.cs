@@ -1,6 +1,6 @@
 ﻿/* TexasTea.cs
  * Author: Max Maus
- * Last modified 2/16/20
+ * Last modified 2/21/20
  */
 
 using System;
@@ -88,6 +88,27 @@ namespace CowboyCafe.Data
 
                 return instructions;
             }
+        }
+
+        /// <summary>
+        /// Converts the object to a string
+        /// </summary>
+        /// <returns>The string "[size of the item] Texas [Plain or Sweet] Tea"</returns>
+        public override string ToString()
+        {
+            StringBuilder tempString = new StringBuilder();
+            tempString.Append(Size.ToString());
+            tempString.Append(" Texas");
+            if (Sweet == true)
+            {
+                tempString.Append(" Sweet");
+            }
+            else
+            {
+                tempString.Append(" Plain");
+            }
+            tempString.Append(" Tea");
+            return tempString.ToString();
         }
     }
 }

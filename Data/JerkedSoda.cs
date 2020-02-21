@@ -1,6 +1,6 @@
 ﻿/* JerkedSoda.cs
  * Author: Max Maus
- * Last modified 2/16/20
+ * Last modified 2/21/20
  */
 
 using System;
@@ -76,6 +76,36 @@ namespace CowboyCafe.Data
 
                 return instructions;
             }
+        }
+
+        /// <summary>
+        /// Converts the object to a string
+        /// </summary>
+        /// <returns>The string "[size of the item] [Flavor] Jerked Soda"</returns>
+        public override string ToString()
+        {
+            StringBuilder tempString = new StringBuilder();
+            tempString.Append(Size.ToString());           
+            switch (Flavor)
+            {
+                case SodaFlavor.CreamSoda:
+                    tempString.Append(" Cream Soda");
+                    break;
+                case SodaFlavor.OrangeSoda:
+                    tempString.Append(" Orange Soda");
+                    break;
+                case SodaFlavor.Sarsparilla:
+                    tempString.Append(" Sarsparilla");
+                    break;
+                case SodaFlavor.RootBeer:
+                    tempString.Append(" Root Beer");
+                    break;
+                case SodaFlavor.BirchBeer:
+                    tempString.Append(" Birch Beer");
+                    break;
+            }
+            tempString.Append(" Jerked Soda");
+            return tempString.ToString();
         }
     }
 }

@@ -12,12 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{0D670D9A-5F9F-4D94-B708-770F0FF26A7F}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Downloads\UML for Cowboy Cafe Maus.pdf = ..\..\..\..\Downloads\UML for Cowboy Cafe Maus.pdf
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{B7857998-4D8B-489B-91C8-942DD4E31874}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{B7857998-4D8B-489B-91C8-942DD4E31874}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{5BBBECE4-AB2B-4BBF-AE0A-F0D9CD5C7F2A}"
+	ProjectSection(SolutionItems) = preProject
+		UML for Cowboy Cafe Maus.pdf = UML for Cowboy Cafe Maus.pdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,7 +42,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{0D670D9A-5F9F-4D94-B708-770F0FF26A7F} = {938FDA09-9346-4837-A3AE-EA1B3485B73F}
+		{5BBBECE4-AB2B-4BBF-AE0A-F0D9CD5C7F2A} = {938FDA09-9346-4837-A3AE-EA1B3485B73F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF0ECCFA-B4C0-4862-B136-C797D24E1A41}

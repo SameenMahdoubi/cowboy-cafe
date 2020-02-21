@@ -1,6 +1,6 @@
 ﻿/* BakenBeans.cs
  * Author: Max Maus
- * Last modified 2/5/20
+ * Last modified 2/21/20
  */
 
 using System;
@@ -54,6 +54,18 @@ namespace CowboyCafe.Data
                         throw new NotImplementedException("Unknown price");
                 }
             }
+        }
+
+        /// <summary>
+        /// Converts the object to a string
+        /// </summary>
+        /// <returns>The string "[size of the item] Baked Beans"</returns>
+        public override string ToString()
+        {
+            StringBuilder tempString = new StringBuilder();
+            tempString.Append(Size.ToString());
+            tempString.Append(" Baked Beans");
+            return tempString.ToString();
         }
     }
 }

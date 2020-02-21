@@ -1,6 +1,6 @@
 ﻿/* ChiliCheeseFries.cs
  * Author: Nathan Bean
- * Last modified 2/16/20
+ * Last modified 2/21/20
  */
 
 using System;
@@ -54,6 +54,18 @@ namespace CowboyCafe.Data
                         throw new NotImplementedException("Unknown price");
                 }
             }
+        }
+
+        /// <summary>
+        /// Converts the object to a string
+        /// </summary>
+        /// <returns>The string "[size of the item] Chili Cheese Fries"</returns>
+        public override string ToString()
+        {
+            StringBuilder tempString = new StringBuilder();
+            tempString.Append(Size.ToString());
+            tempString.Append(" Chili Cheese Fries");
+            return tempString.ToString();
         }
     }
 }
