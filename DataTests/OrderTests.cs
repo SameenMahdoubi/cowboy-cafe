@@ -104,6 +104,85 @@ namespace CowboyCafe.DataTests
             });
         }
        
-        // Add tests for Order number
+
+        [Fact]
+        public void OrderNumbersShouldIncrementConsecutively()
+        {
+            var order0 = new Order();
+            var order1 = new Order();
+            var order2 = new Order();
+            Assert.Equal(order0.OrderNumber, (uint)1);
+            Assert.Equal(order1.OrderNumber, (uint)2);
+            Assert.Equal(order2.OrderNumber, (uint)3);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToAddEntrees()
+        {
+            var order = new Order();
+            var item0 = new AngryChicken();           
+            var item1 = new CowpokeChili();
+            var item2 = new DakotaDoubleBurger();
+            var item3 = new PecosPulledPork();
+            var item4 = new RustlersRibs();
+            var item5 = new TrailBurger();
+            var item6 = new TexasTripleBurger();
+
+            order.Add(item0);
+            order.Add(item1);
+            order.Add(item2);
+            order.Add(item3);
+            order.Add(item4);
+            order.Add(item5);
+            order.Add(item6);
+
+            Assert.Contains(item0, order.Items);
+            Assert.Contains(item1, order.Items);
+            Assert.Contains(item2, order.Items);
+            Assert.Contains(item3, order.Items);
+            Assert.Contains(item4, order.Items);
+            Assert.Contains(item5, order.Items);
+            Assert.Contains(item6, order.Items);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToAddDrinks()
+        {
+            var order = new Order();
+            var item0 = new CowboyCoffee();
+            var item1 = new JerkedSoda();
+            var item2 = new TexasTea();
+            var item3 = new Water();
+
+            order.Add(item0);
+            order.Add(item1);
+            order.Add(item2);
+            order.Add(item3);
+
+            Assert.Contains(item0, order.Items);
+            Assert.Contains(item1, order.Items);
+            Assert.Contains(item2, order.Items);
+            Assert.Contains(item3, order.Items);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToAddSides()
+        {
+            var order = new Order();
+            var item0 = new ChiliCheeseFries();
+            var item1 = new CornDodgers();
+            var item2 = new PanDeCampo();
+            var item3 = new BakedBeans();
+
+            order.Add(item0);
+            order.Add(item1);
+            order.Add(item2);
+            order.Add(item3);
+
+            Assert.Contains(item0, order.Items);
+            Assert.Contains(item1, order.Items);
+            Assert.Contains(item2, order.Items);
+            Assert.Contains(item3, order.Items);
+        }
     }
 }

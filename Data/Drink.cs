@@ -1,6 +1,6 @@
 ﻿/* Drink.cs
  * Author: Max Maus
- * Last modified: 2/12/20
+ * Last modified: 2/28/20
  */
 
 using System;
@@ -12,8 +12,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// This is a base class which defines a base drink to be used as a parent to unique drinks.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IOrderItem
     {
+        /// <summary>
+        /// Defines the drink's name
+        /// </summary>
+        public string Name { get => ToString(); }
+
         /// <summary>
         /// Gets the size of the drink
         /// </summary>

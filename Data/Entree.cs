@@ -1,6 +1,6 @@
 ﻿/* Entree.cs
  * Author: Nathan Bean
- * Last modified 2/5/20
+ * Last modified 2/28/20
  */
 
 using System;
@@ -12,8 +12,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Defines a base Entree class to use as the parent to all other entrees
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree : IOrderItem
     {
+        /// <summary>
+        /// Defines the entree's name
+        /// </summary>
+        public string Name { get => ToString(); }
+
         /// <summary>
         /// Defines the price of a given entree
         /// </summary>
