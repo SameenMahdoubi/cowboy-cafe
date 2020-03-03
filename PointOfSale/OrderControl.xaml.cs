@@ -28,7 +28,25 @@ namespace PointOfSale
 
         }
 
+        /// <summary>
+        /// Removes a canceled order from the order screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order data)
+            {
+                this.DataContext = new Order();
+            }
+        }
+
+        /// <summary>
+        /// Sends the completed order to the cooks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
