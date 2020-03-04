@@ -29,8 +29,13 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="40"/>
                                 </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
                                 <TextBlock Text="{Binding}" Grid.Column="0" TextAlignment="Left"/>
                                 <TextBlock Text="{Binding Path=Price, StringFormat=c}" Grid.Column="1" TextAlignment="Right"/>
+                                <ListView ItemsSource="{Binding Path=SpecialInstructions}" Grid.Row="1" Grid.ColumnSpan="2"/>
 
                             </Grid>
 
