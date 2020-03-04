@@ -22,6 +22,7 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+            SelectItemButton.Click += OnMenuItemSelectionButtonClicked;
 
             var order = new Order();
             this.DataContext = order;
@@ -52,6 +53,16 @@ namespace PointOfSale
             {
                 this.DataContext = new Order();
             }
+        }
+
+        public void OnMenuItemSelectionButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Container.Child = new MenuItemSelectionControl();
+        }
+
+        public void SwapScreen(FrameworkElement element)
+        {
+            Container.Child = element;
         }
     }
 }

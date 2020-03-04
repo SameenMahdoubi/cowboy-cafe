@@ -11,6 +11,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.CustomizationScreens;
+using PointOfSale.ExtensionMethods;
+
 
 namespace PointOfSale
 {
@@ -122,6 +125,7 @@ namespace PointOfSale
             {
                 data.Add(new CowpokeChili());
             }
+            
         }
 
         // Divider for readability, separating Entrees from Sides
@@ -238,6 +242,27 @@ namespace PointOfSale
             if (DataContext is Order data)
             {
                 data.Add(new Water());
+            }
+        }
+
+        public void OnAddOrderItemButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var orderControl = this.FindAncestor<OrderControl>();
+            if(DataContext is Order order)
+            {
+                if(sender is Button button)
+                {
+                    switch (button.Tag)
+                    {
+                        case "CowpokeChili":
+                            var item = new CowpokeChili();
+                            var screen = new CowpokeChiliCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+                    }
+                }
             }
         }
     }

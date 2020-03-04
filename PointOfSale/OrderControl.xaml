@@ -29,8 +29,10 @@
                 <Button Name="CancelOrderButton" Grid.Column="1" Height="30" Click="CancelOrderButton_Click">Cancel Order</Button>
                 <Button Name="CompleteOrderButton" Grid.Column="2" Height="30" Click="CompleteOrderButton_Click">Complete Order</Button>
             </Grid>
+            <Border Name="Container" Grid.Row="1">
+                <local:MenuItemSelectionControl></local:MenuItemSelectionControl>
+            </Border>
             
-            <local:MenuItemSelectionControl Grid.Row="1"></local:MenuItemSelectionControl>
             
         </Grid>
                 
