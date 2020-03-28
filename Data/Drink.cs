@@ -6,14 +6,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// This is a base class which defines a base drink to be used as a parent to unique drinks.
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Defines the drink's name
         /// </summary>
@@ -40,11 +42,21 @@ namespace CowboyCafe.Data
             get;
         }
 
+
+        private bool ice = true;
         /// <summary>
         /// Whether or not the drink contains ice
         /// </summary>
-        public virtual bool Ice { get; set; } = true;
-
+        public virtual bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <summary>
         /// Special instructions for the preparation of the drink
         /// </summary>

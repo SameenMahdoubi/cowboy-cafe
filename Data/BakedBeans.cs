@@ -6,14 +6,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Baked Beans side
     /// </summary>
-    public class BakedBeans : Side
+    public class BakedBeans : Side, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The amount of calories in the baked beans
         /// </summary>
@@ -34,7 +40,7 @@ namespace CowboyCafe.Data
                 }
             }
         }
-
+        
         /// <summary>
         /// The price of the baked beans
         /// </summary>

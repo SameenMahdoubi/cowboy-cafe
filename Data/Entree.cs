@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// Defines a base Entree class to use as the parent to all other entrees
     /// </summary>
     public abstract class Entree : IOrderItem
-    {
+        { 
         /// <summary>
         /// Defines the entree's name
         /// </summary>

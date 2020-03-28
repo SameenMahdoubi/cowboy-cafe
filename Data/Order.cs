@@ -1,5 +1,5 @@
 ﻿/* Order.cs
- * Author: Max Maus
+ * Author: Max Maus, with code taken with permission from Zachery Brunner
  * Last modified: 3/2/20
  */
 
@@ -106,6 +106,17 @@ namespace CowboyCafe.Data
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             }
+        }
+
+        /// <summary>
+        /// This invokes all property change events, to avoid having to add the propertychanged interface to every customization screen
+        /// </summary>
+        public void UpdateAllProperties()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

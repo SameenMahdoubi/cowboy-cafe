@@ -6,38 +6,93 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the TrailBurger entree
     /// </summary>
-    public class TrailBurger : Entree
+    public class TrailBurger : Entree, INotifyPropertyChanged
     {
         /// <summary>
-        /// Whether the Trailburger is served on a bun
+        /// The property changed event
         /// </summary>
-        public bool Bun { get; set; } = true;
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        private bool bun = true;
         /// <summary>
-        /// Whether the Trailburger contains ketchup
+        /// Whether the Dakota Double Burger is served on a bun
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Bun
+        {
+            get { return bun; }
+            set
+            {
+                bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
+        private bool ketchup = true;
         /// <summary>
-        /// Whether the Trailburger contains mustard
+        /// Whether the Dakota Double Burger contains ketchup
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Ketchup
+        {
+            get { return ketchup; }
+            set
+            {
+                ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
+        private bool mustard = true;
         /// <summary>
-        /// Whether the Trailburger contains pickles
+        /// Whether the Dakota Double Burger contains mustard
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Mustard
+        {
+            get { return mustard; }
+            set
+            {
+                mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
+        private bool pickle = true;
         /// <summary>
-        /// Whether the Trailburger contains cheese
+        /// Whether the Dakota Double Burger contains pickles
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Pickle
+        {
+            get { return pickle; }
+            set
+            {
+                pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool cheese = true;
+        /// <summary>
+        /// Whether the Dakota Double Burger contains cheese
+        /// </summary>
+        public bool Cheese
+        {
+            get { return cheese; }
+            set
+            {
+                cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <summary>
         /// The price of the Trailburger

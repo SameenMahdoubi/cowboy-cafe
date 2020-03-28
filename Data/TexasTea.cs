@@ -6,23 +6,64 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Texas Tea drink
     /// </summary>
-    public class TexasTea : Drink
+    public class TexasTea : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private bool sweet = true;
         /// <summary>
         /// Whether or not sweetener should be added
         /// </summary>
-        public bool Sweet { get; set; } = true;
+        public bool Sweet
+        {
+            get { return sweet; }
+            set
+            {
+                sweet = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
+        private bool lemon = false;
         /// <summary>
         /// Whether or not lemon should be added
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// Whether or not the Texas Tea contains ice
+        /// </summary>
+        public override bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <summary>
         /// The amount of calories in the Tea

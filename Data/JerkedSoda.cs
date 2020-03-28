@@ -6,18 +6,49 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Jerked Soda drink.
     /// </summary>
-    public class JerkedSoda : Drink
+    public class JerkedSoda : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private SodaFlavor flavor;
         /// <summary>
         /// The flavor of the soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public SodaFlavor Flavor
+        {
+            get { return flavor; }
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// Whether or not the Jerked Soda contains ice
+        /// </summary>
+        public override bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <summary>
         /// The amount of calories in the Jerked Soda
@@ -102,6 +133,9 @@ namespace CowboyCafe.Data
                     break;
                 case SodaFlavor.BirchBeer:
                     tempString.Append(" Birch Beer");
+                    break;
+
+                default:
                     break;
             }
             tempString.Append(" Jerked Soda");

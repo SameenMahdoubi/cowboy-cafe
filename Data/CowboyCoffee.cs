@@ -6,14 +6,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Cowboy Coffee drink
     /// </summary>
-    public class CowboyCoffee : Drink
-    {  
+    public class CowboyCoffee : Drink, INotifyPropertyChanged
+    {
+        /// <summary>
+        /// The property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The amount of calories in the Coffee
         /// </summary>
@@ -56,20 +62,50 @@ namespace CowboyCafe.Data
             }
         }
 
+        private bool decaf = false;
         /// <summary>
         /// Whether or not the Coffee is decaffienated
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get { return decaf; }
+            set
+            {
+                decaf = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
+        private bool ice = false;
         /// <summary>
         /// Whether or not the Coffee contains ice
         /// </summary>
-        public override bool Ice { get; set; } = false;
+        public override bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
+        private bool roomForCream = false;
         /// <summary>
         /// Whether or not room should be left in the cup for cream
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get { return roomForCream; }
+            set
+            {
+                roomForCream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <summary>
         /// Special instructions for the preparation of the Cowboy Coffee

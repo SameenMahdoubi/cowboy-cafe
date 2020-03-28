@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* MenuItemSelectionControl.xaml.cs
+ * Author: Max Maus, with code taken with permission from Zachery Brunner
+ * Last modified 3/27/20
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,6 +17,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
 using PointOfSale.CustomizationScreens;
+using PointOfSale.CustomizationScreens.EntreeCustomizationScreens;
+using PointOfSale.CustomizationScreens.DrinkCustomizationScreens;
 using PointOfSale.ExtensionMethods;
 
 
@@ -27,223 +34,7 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        
-
-        /// <summary>
-        /// Adds a TrailBurger to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTrailBurgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new TrailBurger());
-            if (DataContext is Order data)
-            {
-                data.Add(new TrailBurger());
-            }
-        }
-
-        /// <summary>
-        /// Adds a Rustler's Ribs to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddRustlersRibsButtonClick(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new RustlersRibs());
-            if (DataContext is Order data)
-            {
-                data.Add(new RustlersRibs());
-            }
-        }
-
-        /// <summary>
-        /// Adds a Pecos Pulled Pork to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddPecosPulledPorkButtonClick(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new PecosPulledPork());
-            if (DataContext is Order data)
-            {
-                data.Add(new PecosPulledPork());
-            }
-        }
-
-        /// <summary>
-        /// Adds a Texas Triple Burger to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTexasTripleButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new TexasTripleBurger());
-            if (DataContext is Order data)
-            {
-                data.Add(new TexasTripleBurger());
-            }
-        }
-
-        /// <summary>
-        /// Adds a Dakota Double to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddDakotaDoubleBurgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new DakotaDoubleBurger());
-            if (DataContext is Order data)
-            {
-                data.Add(new DakotaDoubleBurger());
-            }
-        }
-
-        /// <summary>
-        /// Adds an Angry Chicken to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddAngryChickenButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new AngryChicken());
-            if (DataContext is Order data)
-            {
-                data.Add(new AngryChicken());
-            }
-        }
-
-        /// <summary>
-        /// Adds a Cowpoke Chili to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new CowpokeChili());
-            if (DataContext is Order data)
-            {
-                data.Add(new CowpokeChili());
-            }
             
-        }
-
-        // Divider for readability, separating Entrees from Sides
-
-        /// <summary>
-        /// Adds an order of Baked Beans to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddBakedBeansButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new BakedBeans());
-            if (DataContext is Order data)
-            {
-                data.Add(new BakedBeans());
-            }
-        }
-
-        /// <summary>
-        /// Adds an order of Chili Cheese Fries to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddChiliCheeseFriesButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new ChiliCheeseFries());
-            if (DataContext is Order data)
-            {
-                data.Add(new ChiliCheeseFries());
-            }
-        }
-
-        /// <summary>
-        /// Adds an order of Corn Dodgers to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddCornDodgersButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new CornDodgers());
-            if (DataContext is Order data)
-            {
-                data.Add(new CornDodgers());
-            }
-        }
-
-        /// <summary>
-        /// Adds an order of Pan de Campo to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddPanDeCampoButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new PanDeCampo());
-            if (DataContext is Order data)
-            {
-                data.Add(new PanDeCampo());
-            }
-        }
-
-
-        // Divider between sides and drinks
-
-        /// <summary>
-        /// Adds a Cowboy Coffee to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddCowboyCoffeeButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new CowboyCoffee());
-            if (DataContext is Order data)
-            {
-                data.Add(new CowboyCoffee());
-            }
-        }
-
-        /// <summary>
-        /// Adds a Jerked Soda to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddJerkedSodaButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new JerkedSoda());
-            if (DataContext is Order data)
-            {
-                data.Add(new JerkedSoda());
-            }
-        }
-
-        /// <summary>
-        /// Adds a Texas Tea to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddTexasTeaButton_Click(object sender, RoutedEventArgs e)
-        {
-            // OrderList.Items.Add(new TexasTea());
-            if (DataContext is Order data)
-            {
-                data.Add(new TexasTea());
-            }
-        }
-
-        /// <summary>
-        /// Adds a water to the list of items on the order.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddWaterButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OrderList.Items.Add(new Water());
-            if (DataContext is Order data)
-            {
-                data.Add(new Water());
-            }
-        }
 
         public void OnAddOrderItemButtonClicked(object sender, RoutedEventArgs e)
         {
@@ -252,16 +43,142 @@ namespace PointOfSale
             {
                 if(sender is Button button)
                 {
+                    IOrderItem item;
+                    FrameworkElement screen = null;
                     switch (button.Tag)
                     {
+                        //cases for entrees
                         case "CowpokeChili":
-                            var item = new CowpokeChili();
-                            var screen = new CowpokeChiliCustomization();
+                            
+                            item = new CowpokeChili();
+                            screen = new CowpokeChiliCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "AngryChicken":
+                            
+                            item = new AngryChicken();
+                            screen = new AngryChickenCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "DakotaDoubleBurger":
+
+                            item = new DakotaDoubleBurger();
+                            screen = new DakotaDoubleBurgerCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "PecosPulledPork":
+
+                            item = new PecosPulledPork();
+                            screen = new PecosPulledPorkCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "TrailBurger":
+
+                            item = new TrailBurger();
+                            screen = new TrailBurgerCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "TexasTripleBurger":
+
+                            item = new TexasTripleBurger();
+                            screen = new TexasTripleBurgerCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                            // No screenswap is needed as the Ribs have no special instructions
+                        case "RustlersRibs":
+
+                            item = new RustlersRibs();
+                            order.Add(item);                           
+                            break;
+
+
+                        // Separator for Sides
+
+                        case "BakedBeans":
+                            item = new BakedBeans();
+                            screen = new SizeCustomization(DataContext);
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "ChiliCheeseFries":
+                            item = new ChiliCheeseFries();
+                            screen = new SizeCustomization(DataContext);
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "CornDodgers":
+                            item = new CornDodgers();
+                            screen = new SizeCustomization(DataContext);
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "PanDeCampo":
+                            item = new PanDeCampo();
+                            screen = new SizeCustomization(DataContext);
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        // And finally drinks
+
+                        case "Water":
+                            item = new Water();
+                            screen = new WaterCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "JerkedSoda":
+                            item = new JerkedSoda();
+                            screen = new JerkedSodaCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "CowboyCoffee":
+                            item = new CowboyCoffee();
+                            screen = new CowboyCoffeeCustomization();
+                            screen.DataContext = item;
+                            order.Add(item);
+                            orderControl?.SwapScreen(screen);
+                            break;
+
+                        case "TexasTea":
+                            item = new TexasTea();
+                            screen = new TexasTeaCustomization();
                             screen.DataContext = item;
                             order.Add(item);
                             orderControl?.SwapScreen(screen);
                             break;
                     }
+                    
                 }
             }
         }
