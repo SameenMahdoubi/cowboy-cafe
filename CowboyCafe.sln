@@ -16,7 +16,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{5BBBECE4-AB2B-4BBF-AE0A-F0D9CD5C7F2A}"
 	ProjectSection(SolutionItems) = preProject
-		UML for Cowboy Cafe Maus.pdf = UML for Cowboy Cafe Maus.pdf
+		CowboyCafe Data UML Diagram for Point of Sale Milestone 4.pdf = CowboyCafe Data UML Diagram for Point of Sale Milestone 4.pdf
+		CowboyCafe PointOfSale UML Diagram of Point of Sale milestone 4.pdf = CowboyCafe PointOfSale UML Diagram of Point of Sale milestone 4.pdf
 	EndProjectSection
 EndProject
 Global
