@@ -13,12 +13,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Corn Dodgers side
     /// </summary>
-    public class CornDodgers:Side, INotifyPropertyChanged
+    public class CornDodgers:Side
     {
-        /// <summary>
-        /// The property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         /// <summary>
         /// The amount of calories in the Corn Dodgers
         /// </summary>

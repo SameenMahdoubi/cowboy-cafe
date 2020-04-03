@@ -148,7 +148,7 @@ namespace PointOfSale
 
                         case "Water":
                             item = new Water();
-                            screen = new WaterCustomization();
+                            screen = new WaterCustomization(DataContext);
                             screen.DataContext = item;
                             order.Add(item);
                             orderControl?.SwapScreen(screen);
@@ -156,7 +156,7 @@ namespace PointOfSale
 
                         case "JerkedSoda":
                             item = new JerkedSoda();
-                            screen = new JerkedSodaCustomization();
+                            screen = new JerkedSodaCustomization(DataContext);
                             screen.DataContext = item;
                             order.Add(item);
                             orderControl?.SwapScreen(screen);
@@ -164,7 +164,7 @@ namespace PointOfSale
 
                         case "CowboyCoffee":
                             item = new CowboyCoffee();
-                            screen = new CowboyCoffeeCustomization();
+                            screen = new CowboyCoffeeCustomization(DataContext);
                             screen.DataContext = item;
                             order.Add(item);
                             orderControl?.SwapScreen(screen);
@@ -172,7 +172,7 @@ namespace PointOfSale
 
                         case "TexasTea":
                             item = new TexasTea();
-                            screen = new TexasTeaCustomization();
+                            screen = new TexasTeaCustomization(DataContext);
                             screen.DataContext = item;
                             order.Add(item);
                             orderControl?.SwapScreen(screen);

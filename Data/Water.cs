@@ -13,12 +13,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Represents drinking water
     /// </summary>
-    public class Water:Drink, INotifyPropertyChanged
+    public class Water:Drink
     {
-        /// <summary>
-        /// The property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        
 
         private bool lemon = false;
         /// <summary>
@@ -28,8 +25,8 @@ namespace CowboyCafe.Data
         {
             get { return lemon; }
             set { lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Lemon"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -43,8 +40,8 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Ice"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

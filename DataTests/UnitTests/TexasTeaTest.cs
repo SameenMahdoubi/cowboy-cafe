@@ -120,8 +120,8 @@ namespace CowboyCafe.DataTests
                 Ice = ice,
                 Lemon = lemon,
             };
-            if (!ice) Assert.Contains("Hold Ice", tea.SpecialInstructions);
-            if (lemon) Assert.Contains("Add Lemon", tea.SpecialInstructions);
+            if (!ice) Assert.Contains<string>("Hold Ice", tea.SpecialInstructions);
+            if (lemon) Assert.Contains<string>("Add Lemon", tea.SpecialInstructions);
             if (ice && !lemon) Assert.Empty(tea.SpecialInstructions);
             if (ice && lemon || !ice && !lemon) Assert.Single(tea.SpecialInstructions);
             if (!ice && lemon) Assert.Equal(2, tea.SpecialInstructions.Count);

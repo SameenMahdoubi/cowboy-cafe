@@ -18,7 +18,7 @@
             
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0"  Text="Customize this Side!"/>
+        <TextBlock Grid.Row="0" FontSize="25" Text="Customize this Side!"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

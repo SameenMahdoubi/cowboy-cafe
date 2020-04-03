@@ -56,8 +56,8 @@ namespace CowboyCafe.DataTests
             var pulledPork = new PecosPulledPork();
             pulledPork.Bread = false;
             pulledPork.Pickle = false;
-            Assert.Contains("hold pickle", pulledPork.SpecialInstructions);
-            Assert.Contains("hold bread", pulledPork.SpecialInstructions);
+            Assert.Contains<string>("hold pickle", pulledPork.SpecialInstructions);
+            Assert.Contains<string>("hold bread", pulledPork.SpecialInstructions);
         }
     }
 }

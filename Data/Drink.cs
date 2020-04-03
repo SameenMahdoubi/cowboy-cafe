@@ -21,10 +21,20 @@ namespace CowboyCafe.Data
         /// </summary>
         public string Name { get => ToString(); }
 
+        private Size size;
         /// <summary>
-        /// Gets the size of the drink
+        /// Gets the size of the entree
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Size"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Price"));
+            }
+        }
 
         /// <summary>
         /// Defines the price of a given drink
@@ -53,8 +63,8 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Ice"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         /// <summary>
@@ -63,6 +73,16 @@ namespace CowboyCafe.Data
         public abstract List<string> SpecialInstructions
         {
             get;
+        }
+
+        /// <summary>
+        /// A method to invoke the property changed event handler, created for readability.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void InvokePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(sender, e);
         }
     }
 }

@@ -20,8 +20,18 @@ namespace PointOfSale.CustomizationScreens.DrinkCustomizationScreens
     /// </summary>
     public partial class TexasTeaCustomization : UserControl
     {
-        public TexasTeaCustomization()
+        /// <summary>
+        /// This variable is used so I can notify the properties have changed
+        /// </summary>
+        private Order linkToOrder;
+
+        /// <summary>
+        /// Public constructor
+        /// </summary>
+        /// <param name="dc">Datacontext: This is the overall order so I can trigger the special properties for the order</param>
+        public TexasTeaCustomization(object dc)
         {
+            linkToOrder = (Order)dc;
             InitializeComponent();
         }
 
@@ -47,6 +57,7 @@ namespace PointOfSale.CustomizationScreens.DrinkCustomizationScreens
                         throw new NotImplementedException("Unknown Size Button Pressed");
                 }
 
+                linkToOrder.UpdateAllProperties();
             }
 
         }

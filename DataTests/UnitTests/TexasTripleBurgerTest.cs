@@ -144,8 +144,8 @@ namespace CowboyCafe.DataTests
             var burger = new TexasTripleBurger();
             burger.Ketchup = false;
             burger.Mustard = false;
-            Assert.Contains("hold ketchup", burger.SpecialInstructions);
-            Assert.Contains("hold mustard", burger.SpecialInstructions);
+            Assert.Contains<string>("hold ketchup", burger.SpecialInstructions);
+            Assert.Contains<string>("hold mustard", burger.SpecialInstructions);
         }
 
         [Fact]
@@ -155,9 +155,9 @@ namespace CowboyCafe.DataTests
             burger.Bun = false;
             burger.Cheese = false;
             burger.Pickle = false;
-            Assert.Contains("hold bun", burger.SpecialInstructions);
-            Assert.Contains("hold cheese", burger.SpecialInstructions);
-            Assert.Contains("hold pickle", burger.SpecialInstructions);
+            Assert.Contains<string>("hold bun", burger.SpecialInstructions);
+            Assert.Contains<string>("hold cheese", burger.SpecialInstructions);
+            Assert.Contains<string>("hold pickle", burger.SpecialInstructions);
         }
     }
 }

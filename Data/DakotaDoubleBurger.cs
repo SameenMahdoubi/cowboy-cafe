@@ -13,12 +13,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Dakota Double burger entree
     /// </summary>
-    public class DakotaDoubleBurger : Entree, INotifyPropertyChanged
+    public class DakotaDoubleBurger : Entree
     {
-        /// <summary>
-        /// The property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        
 
         private bool bun = true;
         /// <summary>
@@ -30,8 +27,8 @@ namespace CowboyCafe.Data
             set
             {
                 bun = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Bun"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -45,8 +42,8 @@ namespace CowboyCafe.Data
             set
             {
                 ketchup = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Ketchup"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -60,8 +57,8 @@ namespace CowboyCafe.Data
             set
             {
                 mustard = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Mustard"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -75,8 +72,8 @@ namespace CowboyCafe.Data
             set
             {
                 pickle = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Pickle"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -90,8 +87,8 @@ namespace CowboyCafe.Data
             set
             {
                 cheese = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Cheese"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -105,8 +102,8 @@ namespace CowboyCafe.Data
             set
             {
                 tomato = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Tomato"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -120,8 +117,8 @@ namespace CowboyCafe.Data
             set
             {
                 lettuce = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Lettuce"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -135,8 +132,8 @@ namespace CowboyCafe.Data
             set
             {
                 mayo = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Mayo"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

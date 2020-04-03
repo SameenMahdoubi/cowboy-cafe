@@ -13,9 +13,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Pan de Campo side
     /// </summary>
-    public class PanDeCampo : Side, INotifyPropertyChanged
+    public class PanDeCampo : Side
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         /// <summary>
         /// The amount of calories in the Pan de Campo
         /// </summary>

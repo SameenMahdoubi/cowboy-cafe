@@ -13,12 +13,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Cowboy Coffee drink
     /// </summary>
-    public class CowboyCoffee : Drink, INotifyPropertyChanged
+    public class CowboyCoffee : Drink
     {
-        /// <summary>
-        /// The property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        
 
         /// <summary>
         /// The amount of calories in the Coffee
@@ -72,8 +69,8 @@ namespace CowboyCafe.Data
             set
             {
                 decaf = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Decaf"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -87,8 +84,8 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Ice"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -102,8 +99,8 @@ namespace CowboyCafe.Data
             set
             {
                 roomForCream = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("RoomForCream"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

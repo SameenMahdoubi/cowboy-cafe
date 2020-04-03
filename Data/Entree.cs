@@ -6,14 +6,21 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// Defines a base Entree class to use as the parent to all other entrees
     /// </summary>
-    public abstract class Entree : IOrderItem
-        { 
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
+        {
+
+        /// <summary>
+        /// The property changed event
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Defines the entree's name
         /// </summary>
@@ -41,6 +48,16 @@ namespace CowboyCafe.Data
         public abstract List<string> SpecialInstructions
         {
             get;
+        }
+
+        /// <summary>
+        /// A method to invoke the property changed event handler, created for readability.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void InvokePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(sender, e);
         }
     }
 }

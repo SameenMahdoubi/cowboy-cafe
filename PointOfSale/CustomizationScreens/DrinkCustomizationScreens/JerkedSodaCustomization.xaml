@@ -6,6 +6,11 @@
              xmlns:local="clr-namespace:PointOfSale.CustomizationScreens.DrinkCustomizationScreens"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>

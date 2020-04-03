@@ -1,6 +1,6 @@
 ﻿/* TexasTea.cs
  * Author: Max Maus
- * Last modified 2/21/20
+ * Last modified 3/30/20
  */
 
 using System;
@@ -13,12 +13,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Texas Tea drink
     /// </summary>
-    public class TexasTea : Drink, INotifyPropertyChanged
+    public class TexasTea : Drink
     {
-        /// <summary>
-        /// The property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        
 
         private bool sweet = true;
         /// <summary>
@@ -30,8 +27,9 @@ namespace CowboyCafe.Data
             set
             {
                 sweet = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Sweet"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -45,8 +43,10 @@ namespace CowboyCafe.Data
             set
             {
                 lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Lemon"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Calories"));
+
             }
         }
 
@@ -60,8 +60,8 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Ice"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -86,6 +86,7 @@ namespace CowboyCafe.Data
                     default:
                         throw new NotImplementedException("Unknown Size");
                 }
+
             }
         }
 

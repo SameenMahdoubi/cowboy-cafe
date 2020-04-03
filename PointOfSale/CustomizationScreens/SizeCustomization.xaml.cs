@@ -84,10 +84,8 @@ namespace PointOfSale.CustomizationScreens
                     throw new NotImplementedException("Unknown Size Button Pressed");
             }
             s.Size = size;
-            PropertyChanged?.Invoke(linkToOrder, new PropertyChangedEventArgs("Subtotal"));
-            PropertyChanged?.Invoke(linkToOrder, new PropertyChangedEventArgs("Items"));
-            PropertyChanged?.Invoke(linkToOrder, new PropertyChangedEventArgs("SpecialInstructions"));
-            PropertyChanged?.Invoke(DataContext, new PropertyChangedEventArgs("Price"));
+            
+            linkToOrder.UpdateAllProperties();
         }
     }
 }

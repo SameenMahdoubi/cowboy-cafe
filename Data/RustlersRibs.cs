@@ -13,12 +13,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Rustler's Ribs entree
     /// </summary>
-    public class RustlersRibs : Entree, INotifyPropertyChanged
+    public class RustlersRibs : Entree
     {
-        /// <summary>
-        /// The property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         /// <summary>
         /// The price of the ribs
         /// </summary>

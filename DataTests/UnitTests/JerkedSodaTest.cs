@@ -17,7 +17,7 @@ namespace CowboyCafe.DataTests
         public void SodaFlavorEnumShouldContainFlavor(string name)
         {
             var names = Enum.GetNames(typeof(SodaFlavor));
-            Assert.Contains(name, names);
+            Assert.Contains<string>(name, names);
         }
 
         [Fact]

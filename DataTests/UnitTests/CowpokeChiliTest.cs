@@ -78,8 +78,8 @@ namespace CowboyCafe.DataTests
             var chili = new CowpokeChili();
             chili.Cheese = false;
             chili.TortillaStrips = false;
-            Assert.Contains("hold cheese", chili.SpecialInstructions);
-            Assert.Contains("hold tortilla strips", chili.SpecialInstructions);
+            Assert.Contains<string>("hold cheese", chili.SpecialInstructions);
+            Assert.Contains<string>("hold tortilla strips", chili.SpecialInstructions);
         }
 
         [Fact]
@@ -89,9 +89,9 @@ namespace CowboyCafe.DataTests
             chili.Cheese = false;
             chili.SourCream = false;
             chili.GreenOnions = false;
-            Assert.Contains("hold cheese", chili.SpecialInstructions);
-            Assert.Contains("hold sour cream", chili.SpecialInstructions);
-            Assert.Contains("hold green onions", chili.SpecialInstructions);
+            Assert.Contains<string>("hold cheese", chili.SpecialInstructions);
+            Assert.Contains<string>("hold sour cream", chili.SpecialInstructions);
+            Assert.Contains<string>("hold green onions", chili.SpecialInstructions);
         }
     }
 }

@@ -56,8 +56,8 @@ namespace CowboyCafe.DataTests
             var chicken = new AngryChicken();
             chicken.Bread = false;
             chicken.Pickle = false;
-            Assert.Contains("hold pickle", chicken.SpecialInstructions);
-            Assert.Contains("hold bread", chicken.SpecialInstructions);
+            Assert.Contains<string>("hold pickle", chicken.SpecialInstructions);
+            Assert.Contains<string>("hold bread", chicken.SpecialInstructions);
         }
     }
 }

@@ -35,8 +35,8 @@ namespace CowboyCafe.Data
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Size"));
+                InvokePropertyChanged(this, new PropertyChangedEventArgs("Price"));
             }
         }
 
@@ -56,6 +56,16 @@ namespace CowboyCafe.Data
         public List<string> SpecialInstructions
         {
             get => new List<String>();
+        }
+
+        /// <summary>
+        /// A method to invoke the property changed event handler, created for readability.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void InvokePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(sender, e);
         }
     }
 }

@@ -14,12 +14,9 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Chili CHeese Fries side
     /// </summary>
-    public class ChiliCheeseFries:Side, INotifyPropertyChanged
+    public class ChiliCheeseFries:Side
     {
-        /// <summary>
-        /// The property changed event
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         /// <summary>
         /// The amount of calories in the Chili Cheese Fries
         /// </summary>

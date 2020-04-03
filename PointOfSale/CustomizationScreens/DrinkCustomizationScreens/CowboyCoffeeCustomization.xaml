@@ -6,13 +6,18 @@
              xmlns:local="clr-namespace:PointOfSale.CustomizationScreens.DrinkCustomizationScreens"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="40" Grid.Row="0">Customize This Cowboy Coffee!</TextBlock>
+        <TextBlock FontSize="35" Grid.Row="0">Customize This Cowboy Coffee!</TextBlock>
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <CheckBox  IsChecked="{Binding Path=Decaf}"></CheckBox>
             <TextBlock Text="Decaf "></TextBlock>
