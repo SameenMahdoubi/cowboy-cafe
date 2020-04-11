@@ -6,4 +6,10 @@
     <RootNamespace>CowboyCafe.Data</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="CashRegister">
+      <HintPath>..\..\..\source\repos\mvvm-data-binding-SameenMahdoubi\MVVMDataBinding\CashRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

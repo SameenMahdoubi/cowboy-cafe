@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.ExtensionMethods;
+using CashRegister;
 
 namespace PointOfSale
 {
@@ -19,14 +21,19 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        CashDrawer drawer;
+
+        Order order;
+
         public OrderControl()
         {
             InitializeComponent();
             SelectItemButton.Click += OnMenuItemSelectionButtonClicked;
 
-            var order = new Order();
+            order = new Order();
             this.DataContext = order;
 
+            drawer = new CashDrawer();
         }
 
         /// <summary>
@@ -51,7 +58,16 @@ namespace PointOfSale
         {
             if (DataContext is Order data)
             {
-                this.DataContext = new Order();
+                IOrderItem[] io = (IOrderItem[])order.Items;
+
+                /* Check to make sure there is a transaction available */
+                if (io.Length != 0)
+                {
+                    MainWindow mw = this.FindAncestor<MainWindow>();
+                    mw.Container.Child = new TransactionControl(drawer, this);
+                    
+                    //this.DataContext = new Order();
+                }
             }
         }
 
