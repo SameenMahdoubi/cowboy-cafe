@@ -1,6 +1,6 @@
 ﻿/* Drink.cs
  * Author: Max Maus
- * Last modified: 2/28/20
+ * Last modified: 4/20/20
  */
 
 using System;
@@ -21,7 +21,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public string Name { get => ToString(); }
 
-        private Size size;
+        private Size size = Size.Medium;
         /// <summary>
         /// Gets the size of the entree
         /// </summary>

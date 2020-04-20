@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		CowboyCafe PointOfSale UML Diagram of Point of Sale milestone 4.pdf = CowboyCafe PointOfSale UML Diagram of Point of Sale milestone 4.pdf
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{10C76519-4B3C-4E34-9D29-F41F549CA625}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{B7857998-4D8B-489B-91C8-942DD4E31874}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7857998-4D8B-489B-91C8-942DD4E31874}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7857998-4D8B-489B-91C8-942DD4E31874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C76519-4B3C-4E34-9D29-F41F549CA625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C76519-4B3C-4E34-9D29-F41F549CA625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C76519-4B3C-4E34-9D29-F41F549CA625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C76519-4B3C-4E34-9D29-F41F549CA625}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
