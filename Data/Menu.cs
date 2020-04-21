@@ -17,7 +17,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// A list that contains every entree. These are manually created because I cannot think of a way to enumerate through every entree without an existing list.
         /// </summary>
-        public static List<IOrderItem> entrees = new List<IOrderItem> {
+        public static IEnumerable<IOrderItem> entrees = new List<IOrderItem> {
             new TrailBurger(),
             new DakotaDoubleBurger(),
             new TexasTripleBurger(),
@@ -30,7 +30,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// A list that contains every drink.
         /// </summary>
-        private static List<IOrderItem> drinks = new List<IOrderItem>{
+        private static IEnumerable<IOrderItem> drinks = new List<IOrderItem>{
             new CowboyCoffee(),
             new JerkedSoda(),
             new TexasTea(),
@@ -40,7 +40,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// A list that contains every side.
         /// </summary>
-        private static List<IOrderItem> sides = new List<IOrderItem> {
+        private static IEnumerable<IOrderItem> sides = new List<IOrderItem> {
             new BakedBeans(),
             new ChiliCheeseFries(),
             new CornDodgers(),
@@ -50,31 +50,55 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Returns the entrees list while preserving data hiding.
         /// </summary>
-        /// <returns></returns>
-        public static List<IOrderItem> GetEntrees()
+        /// <returns>A list of every entree.</returns>
+        public static IEnumerable<IOrderItem> Entrees
         {
-            return entrees;
+            get { return entrees; }
         }
-
+        
         /// <summary>
         /// Returns the sides list while preserving data hiding.
         /// </summary>
-        /// <returns></returns>
-        public static List<IOrderItem> GetSides()
+        /// <returns>A list of every side.</returns>
+        public static IEnumerable<IOrderItem> Sides
         {
-            return sides;
+            get { return sides;}
         }
 
         /// <summary>
         /// Returns the drinks list while preserving data hiding.
         /// </summary>
-        /// <returns></returns>
-        public static List<IOrderItem> GetDrinks()
+        /// <returns>A list of every drink.</returns>
+        public static IEnumerable<IOrderItem> Drinks
         {
-            return drinks;
+            get { return drinks; }
         }
 
+        /// <summary>
+        /// returns the full Cowboy Cafe menu.
+        /// </summary>
+        /// <returns>The menu.</returns>
+        public static IEnumerable<IOrderItem> CompleteMenu()
+        {
+            List<IOrderItem> fullMenu = new List<IOrderItem>();
 
+            foreach(Entree entree in entrees)
+            {
+                fullMenu.Add(entree);
+            }
+
+            foreach (Side side in sides)
+            {
+                fullMenu.Add(side);
+            }
+
+            foreach (Drink drink in drinks)
+            {
+                fullMenu.Add(drink);
+            }
+
+            return fullMenu;
+        }
 
 
     }

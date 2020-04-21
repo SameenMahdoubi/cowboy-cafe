@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
+@using CowboyCafe.Data;
+
+<!--This page displays the Cowboy Cafe menu, with the price and calorie content of each item.-->
 
     <div class="text-center">
         <h1 class="display-4">Cowboy Cafe</h1>
@@ -13,8 +16,91 @@
         </p>
 
         <h2>Entrees</h2>
-        
+
+        @{
+            IEnumerable<IOrderItem> allEntrees = Menu.Entrees;
+        }
+        @foreach (IOrderItem item in allEntrees)
+        {
+            @if (item is Entree entree)
+            {
+                <div class="menu-item">
+                    <p>
+                        <b>@entree.Name</b><br />
+                        Price: $@String.Format("{0:#.00}", entree.Price) <br />
+                        Calories: @entree.Calories
+                    </p>
+                </div>
+            }
+
+        }
+
+
         <h2>Sides</h2>
+        @{
+            IEnumerable<IOrderItem> allSides = Menu.Sides;
+        }
+        @foreach (IOrderItem item in allSides)
+        {
+            <!---This manually inputs for each size-->
+            @if (item is Side side)
+            {
+                <div class="menu-item">
+                    <p>
+                        <b>@(side.Name.Remove(0, 7))</b><br />
+                        @(side.Size = Size.Small):
+                        Price: $@String.Format("{0:#.00}", side.Price) <br />
+                        Calories: @side.Calories <br />
+
+                        @(side.Size = Size.Medium):
+                        Price: $@String.Format("{0:#.00}", side.Price) <br />
+                        Calories: @side.Calories <br />
+
+                        @(side.Size = Size.Large):
+                        Price: $@String.Format("{0:#.00}", side.Price) <br />
+                        Calories: @side.Calories <br />
+                    </p>                    
+                </div>
+            }
+
+        }
+
 
         <h2>Drinks</h2>
+        @{
+            IEnumerable<IOrderItem> allDrinks = Menu.Drinks;
+        }
+        @foreach (IOrderItem item in allDrinks)
+        {
+            <!---This manually inputs for each size, Jerked Soda gets a special classification because its flavor category has no need to be shown here.-->
+            @if (item is Drink drink)
+            {
+                <div class="menu-item">
+                    <p>
+                        @if (drink.Name == "Medium Cream Soda Jerked Soda")
+                        {
+                            <b>Jerked Soda</b><br/>
+                        }
+                        else
+                        {
+                            <b>@(drink.Name.Remove(0, 7))</b><br />
+                        }
+
+                        @(drink.Size = Size.Small):
+                        Price: $@String.Format("{0:#.00}", drink.Price) <br />
+                        Calories: @drink.Calories <br />
+
+                        @(drink.Size = Size.Medium):
+                        Price: $@String.Format("{0:#.00}", drink.Price) <br />
+                        Calories: @drink.Calories <br />
+
+                        @(drink.Size = Size.Large):
+                        Price: $@String.Format("{0:#.00}", drink.Price) <br />
+                        Calories: @drink.Calories <br />
+                    </p>
+                </div>
+            }
+
+        }
+
     </div>
