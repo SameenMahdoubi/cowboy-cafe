@@ -61,7 +61,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the chicken sandwich
         /// </summary>
-        public override uint Calories
+        public override uint? Calories
         {
             get
             {

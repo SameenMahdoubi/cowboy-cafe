@@ -6,41 +6,6 @@
 @using CowboyCafe.Data;
 
 <!--This page displays the Cowboy Cafe menu, with the price and calorie content of each item.-->
-    <form id="search-block">
-        <div id="search">
-            <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
-            <input type="submit" value="Search">
-        </div>
-
-        <div id="filters">
-            <h4>Calorie Count</h4>
-            <div>
-                Between
-                <input name="CalorieMin" type="number" min="0" max="800" step="1" placeholder="min" />
-                and
-                <input name="CalorieMax" type="number" min="0" max="800" step="1" placeholder="max" />
-            </div>
-
-            <h4>Price</h4>
-            <div>
-                Between $
-                <input name="IMDBMin" type="number" min="0" max="10.00" step="0.01" placeholder="min" />
-                and $
-                <input name="IMDBMax" type="number" min="0" max="10.00" step="0.1" placeholder="max" />
-            </div>
-
-            <h4>Genre</h4>
-            @foreach (String type in Menu.Types)
-            {
-                <label>
-                    <input type="checkbox" name="ItemTypes" value="@type" />
-                    @type
-                </label>
-            }
-        </div>
-    </form>
-
-
 
     <div class="text-center">
         <h1 class="display-4">Cowboy Cafe</h1>
@@ -50,92 +15,170 @@
             Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
         </p>
 
-        <h2>Entrees</h2>
+        <form id="search-block" class="text-center">
+            <p>Want to find something in specific? Try searching for it here!</p>
+            <div id="search">
+                <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+                <input type="submit" value="Search">
+            </div>
 
-        @{
-            IEnumerable<IOrderItem> allEntrees = Menu.Entrees;
-        }
-        @foreach (IOrderItem item in allEntrees)
-        {
-            @if (item is Entree entree)
-            {
-                <div class="menu-item">
-                    <p>
-                        <b>@entree.Name</b><br />
-                        Price: $@String.Format("{0:#.00}", entree.Price) <br />
-                        Calories: @entree.Calories
-                    </p>
+            <div id="filters">
+                <h4>Calorie Count</h4>
+                <div>
+                    Between
+                    <input name="CalorieMin" type="number" min="0" max="800" step="1" placeholder="min" value="@Model.CalorieMin" />
+                    and
+                    <input name="CalorieMax" type="number" min="0" max="800" step="1" placeholder="max" value="@Model.CalorieMax" />
                 </div>
-            }
 
-        }
-
-
-        <h2>Sides</h2>
-        @{
-            IEnumerable<IOrderItem> allSides = Menu.Sides;
-        }
-        @foreach (IOrderItem item in allSides)
-        {
-            <!---This manually inputs for each size-->
-            @if (item is Side side)
-            {
-                <div class="menu-item">
-                    <p>
-                        <b>@(side.Name.Remove(0, 7))</b><br />
-                        @(side.Size = Size.Small):
-                        Price: $@String.Format("{0:#.00}", side.Price) <br />
-                        Calories: @side.Calories <br />
-
-                        @(side.Size = Size.Medium):
-                        Price: $@String.Format("{0:#.00}", side.Price) <br />
-                        Calories: @side.Calories <br />
-
-                        @(side.Size = Size.Large):
-                        Price: $@String.Format("{0:#.00}", side.Price) <br />
-                        Calories: @side.Calories <br />
-                    </p>                    
+                <h4>Price</h4>
+                <div>
+                    Between $
+                    <input name="PriceMin" type="number" min="0" max="10.00" step="0.01" placeholder="min" value="@Model.PriceMin" />
+                    and $
+                    <input name="PriceMax" type="number" min="0" max="10.00" step="0.1" placeholder="max" value="@Model.PriceMax" />
                 </div>
-            }
 
-        }
+                <h4>Item Types</h4>
+                @foreach (String type in Menu.Types)
+                {
+                    <label>
+                        <input type="checkbox" name="ItemTypes" value="@type" checked="@Model.ItemTypes.Contains(type)" />
+                        @type
+                    </label>
+                }
+            </div>
+        </form>
 
-
-        <h2>Drinks</h2>
+        <!-- The filtered menus are for displaying specific types after filtering.-->
         @{
-            IEnumerable<IOrderItem> allDrinks = Menu.Drinks;
-        }
-        @foreach (IOrderItem item in allDrinks)
-        {
-            <!---This manually inputs for each size, Jerked Soda gets a special classification because its flavor category has no need to be shown here.-->
-            @if (item is Drink drink)
+            List<IOrderItem> filteredEntrees = new List<IOrderItem>();
+            List<IOrderItem> filteredSides = new List<IOrderItem>();
+            List<IOrderItem> filteredDrinks = new List<IOrderItem>();
+            foreach (IOrderItem item in Model.FilteredMenu)
             {
-                <div class="menu-item">
-                    <p>
-                        @if (drink.Name == "Medium Cream Soda Jerked Soda")
-                        {
-                            <b>Jerked Soda</b><br/>
+                if (item is Entree)
+                {
+                    filteredEntrees.Add(item);
+                }
+                if (item is Side)
+                {
+                    filteredSides.Add(item);
+                }
+                if (item is Drink)
+                {
+                    filteredDrinks.Add(item);
+                }
+            }
+        }
+        <div class="flex-columns">
+            <div>
+                @if (filteredEntrees.Count != 0)
+                {
+                    <h2>Entrees</h2>
+                }
+
+
+
+                @foreach (IOrderItem item in filteredEntrees)
+                {
+                    @if (item is Entree entree)
+                    {
+                        <div class="menu-item">
+                            <p>
+                                <b>@entree.Name</b><br />
+                                Price: $@String.Format("{0:#.00}", entree.Price) <br />
+                                Calories: @entree.Calories
+                            </p>
+                        </div>
+                    }
+                }
+            </div>
+
+            <div>
+                @if (filteredSides.Count != 0)
+                {
+                    <h2>Sides</h2>
+                }
+
+
+                @foreach (IOrderItem item in filteredSides)
+                {
+                    <!---This manually inputs for each size-->
+                    @if (item is Side side)
+                    {
+                        <div class="menu-item">
+                            <p>
+                                <b>@(side.Name.Remove(0, 6))</b><br />
+                                @(side.Size = Size.Small):
+                                Price: $@String.Format("{0:#.00}", side.Price) <br />
+                                Calories: @side.Calories <br />
+
+                                @(side.Size = Size.Medium):
+                                Price: $@String.Format("{0:#.00}", side.Price) <br />
+                                Calories: @side.Calories <br />
+
+                                @(side.Size = Size.Large):
+                                Price: $@String.Format("{0:#.00}", side.Price) <br />
+                                Calories: @side.Calories <br />
+                            </p>
+                        </div>
+                    }
+
+                }
+            </div>
+
+            <div>
+                @if (filteredDrinks.Count != 0)
+                {
+                    <h2>Drinks</h2>
+                }
+
+
+                @foreach (IOrderItem item in filteredDrinks)
+                {
+                    <!---This manually inputs for each size, Jerked Soda gets a special classification because its flavor category has no need to be shown here.-->
+                    @if (item is Drink drink)
+                    {
+                        <div class="menu-item">
+                            <p>
+                                @if (drink.Name.Contains("Jerked Soda"))
+                                {
+
+                                <p>
+                                    <b>Jerked Soda</b><br />
+                                    Available Jerked Soda Flavors: <br />
+                                    Cream Soda <br />
+                                    Orange Soda <br />
+                                    Sarsparilla <br />
+                                    Birch Beer <br />
+                                    Root Beer
+                                </p>
+                            }
+                            else
+                            {
+                                <b>@(drink.Name.Remove(0, 6))</b><br />
+                            }
+
+                                @(drink.Size = Size.Small):
+                                Price: $@String.Format("{0:#.00}", drink.Price) <br />
+                                Calories: @drink.Calories <br />
+
+                                @(drink.Size = Size.Medium):
+                                Price: $@String.Format("{0:#.00}", drink.Price) <br />
+                                Calories: @drink.Calories <br />
+
+                                @(drink.Size = Size.Large):
+                                Price: $@String.Format("{0:#.00}", drink.Price) <br />
+                                Calories: @drink.Calories <br />
+                                </p>
+                            </div>
                         }
-                        else
-                        {
-                            <b>@(drink.Name.Remove(0, 7))</b><br />
-                        }
 
-                        @(drink.Size = Size.Small):
-                        Price: $@String.Format("{0:#.00}", drink.Price) <br />
-                        Calories: @drink.Calories <br />
+                }
+            </div>
 
-                        @(drink.Size = Size.Medium):
-                        Price: $@String.Format("{0:#.00}", drink.Price) <br />
-                        Calories: @drink.Calories <br />
-
-                        @(drink.Size = Size.Large):
-                        Price: $@String.Format("{0:#.00}", drink.Price) <br />
-                        Calories: @drink.Calories <br />
-                    </p>
-                </div>
-            }
-
-        }
+        </div>
 
     </div>
+        

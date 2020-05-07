@@ -62,7 +62,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the Pecos Pulled Pork
         /// </summary>
-        public override uint Calories
+        public override uint? Calories
         {
             get
             {

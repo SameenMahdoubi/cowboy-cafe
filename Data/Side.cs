@@ -48,7 +48,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the calories of the entree
         /// </summary>
-        public abstract uint Calories { get; }
+        public abstract uint? Calories { get; }
 
         /// <summary>
         /// Special Instructions for preparation of the side (always empty)

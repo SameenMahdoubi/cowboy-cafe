@@ -48,7 +48,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The amount of calories in the water
         /// </summary>
-        public override uint Calories
+        public override uint? Calories
         {
             get
             {

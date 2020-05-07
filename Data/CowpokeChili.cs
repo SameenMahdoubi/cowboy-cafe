@@ -83,7 +83,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the chili
         /// </summary>
-        public override uint Calories
+        public override uint? Calories
         {
             get
             {
