@@ -1,6 +1,6 @@
 ﻿/* Menu.cs
  * Author: Max Maus
- * Last Modified 4/20/20
+ * Last Modified 5/6/20
  */
 
 using System;
@@ -17,7 +17,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// A list that contains every entree. These are manually created because I cannot think of a way to enumerate through every entree without an existing list.
         /// </summary>
-        public static IEnumerable<IOrderItem> entrees = new List<IOrderItem> {
+        private static IEnumerable<IOrderItem> entrees = new List<IOrderItem> {
             new TrailBurger(),
             new DakotaDoubleBurger(),
             new TexasTripleBurger(),
@@ -78,7 +78,7 @@ namespace CowboyCafe.Data
         /// returns the full Cowboy Cafe menu.
         /// </summary>
         /// <returns>The menu.</returns>
-        public static IEnumerable<IOrderItem> CompleteMenu()
+        public static IEnumerable<IOrderItem> All()
         {
             List<IOrderItem> fullMenu = new List<IOrderItem>();
 
@@ -100,6 +100,18 @@ namespace CowboyCafe.Data
             return fullMenu;
         }
 
+        /// <summary>
+        /// A list of all types of order item.
+        /// </summary>
+        public static String[] Types
+        {
+            get => new string[]
+            {
 
+                "Entree",
+                "Side",
+                "Drink"
+            };
+        }
     }
 }
